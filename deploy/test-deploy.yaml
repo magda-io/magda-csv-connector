@@ -1,0 +1,5 @@
+image:
+  imagePullSecret: gh-docker
+  tag: latest
+includeCronJobs: true
+includeInitialJobs: true

@@ -1,0 +1,6 @@
+apiVersion: v1
+name: magda-csv-connector
+description: A Helm chart for Magda CSV Connector
+version: "0.0.57-0"
+home: "https://github.com/magda-io/magda-csv-connector"
+sources: ["https://github.com/magda-io/magda-csv-connector"]

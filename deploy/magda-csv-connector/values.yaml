@@ -1,0 +1,36 @@
+global:
+  image: {}
+
+image: 
+  name: "magda-csv-connector"
+  # repository: 
+  # tag: 
+  # pullPolicy: 
+  # imagePullSecret: 
+
+defaultImage:
+  repository: docker.io/data61
+  tag: 0.0.57-0
+  pullPolicy: IfNotPresent
+  # imagePullSecret: ""
+
+resources:
+  requests:
+    cpu: 50m
+    memory: 30Mi
+  limits:
+    cpu: 100m
+
+includeInitialJobs: true
+includeCronJobs: false
+defaultTenantId: 0
+
+config:
+  ## Unique id to identify this connector and records that are harvested from it
+  id: default-csv-connector
+
+  ## Friendly readable name
+  ## name: Default CSV Connector
+  
+  ## The base URL of the place (e.g. content-api) to download CSV file from
+  # sourceUrl: 
