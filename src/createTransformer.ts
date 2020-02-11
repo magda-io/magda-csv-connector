@@ -1,5 +1,4 @@
-import AspectBuilder from "@magda/typescript-common/dist/AspectBuilder";
-import cleanOrgTitle from "@magda/typescript-common/dist/util/cleanOrgTitle";
+import { AspectBuilder, cleanOrgTitle } from "@magda/connector-sdk";
 import CsvTransformer from "./CsvTransformer";
 
 import * as fuzzy from "./fuzzyMatch";

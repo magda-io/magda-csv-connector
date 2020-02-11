@@ -6,7 +6,7 @@
     "prebuild": "rimraf dist tsconfig.tsbuildinfo",
     "build": "yarn run compile",
     "compile": "yarn run compile-node && yarn run compile-browser",
-    "compile-node": "tsc -b && ts-module-alias-transformer dist",
+    "compile-node": "tsc -b",
     "compile-browser": "webpack --config src/webpack.config.js",
     "watch": "tsc -b --watch",
     "start": "node dist/index.js",
@@ -14,6 +14,7 @@
     "docker-build-local": "create-docker-context-for-node-component --build --push --tag auto --local",
     "docker-build-prod": "create-docker-context-for-node-component --build --push --tag auto",
     "retag-and-push": "retag-and-push",
+    "helm-lint": "helm lint deploy/magda-csv-connector -f deploy/test-deploy.yaml",
     "test": "mocha --require ts-node/register --require tsconfig-paths/register \"src/test/**/*.spec.ts\""
   },
   "license": "Apache-2.0",
@@ -27,15 +28,26 @@
     "@types/xml2js": "0.0.33",
     "@types/xmldom": "^0.1.29",
     "@types/yargs": "^12.0.8",
+    "@types/chai": "^4.2.8",
+    "@types/mocha": "^7.0.1",
+    "husky": "^3.1.0",
+    "chai": "^4.2.0",
+    "mocha": "^7.0.1",
+    "nock": "^11.7.2",
+    "prettier": "^1.19.1",
+    "pretty-quick": "^2.0.1",
+    "rimraf": "^3.0.0",
     "ts-loader": "^6.2.1",
     "tsconfig-paths-webpack-plugin": "^3.2.0",
     "typescript": "^3.7.2",
     "webpack": "^4.28.3",
-    "webpack-cli": "^3.3.10"
+    "webpack-cli": "^3.3.10",
+    "@magda/connector-test-utils": "^0.0.57-0"
   },
   "dependencies": {
+    "@magda/connector-sdk": "^0.0.57-0",
     "@magda/registry-aspects": "^0.0.57-0",
-    "@magda/typescript-common": "^0.0.57-0",
+    "@magda/utils": "^0.0.57-0",
     "escape-html": "^1.0.3",
     "jsonpath": "^1.0.0",
     "read-pkg-up": "^3.0.0",
@@ -59,7 +71,9 @@
       "connector": true
     }
   },
-  "_moduleMappings": {
-    "magda-typescript-common/src": "@magda/typescript-common/dist"
+  "husky": {
+    "hooks": {
+      "pre-commit": "pretty-quick --staged"
+    }
   }
 }
