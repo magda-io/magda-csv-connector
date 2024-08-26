@@ -19,7 +19,8 @@
   },
   "license": "Apache-2.0",
   "devDependencies": {
-    "@magda/scripts": "^0.0.57-0",
+    "@magda/ci-utils": "^1.0.2",
+    "@magda/docker-utils": "^1.2.0",
     "@types/jsonpath": "^0.1.29",
     "@types/lodash": "^4.14.66",
     "@types/read-pkg-up": "^3.0.1",
